@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&effect=outline" rel="stylesheet" type="text/css"> 
+    
+        <style>
+            @font-face {
+                font-family: instruction;
+                src: url(Lekton-Italic.ttf);
+            }
+            body { 
+                background-color: rgba(0, 0, 0, 0); 
+                margin: 0px auto; 
+                overflow: hidden; 
+                font-family: instruction, monospace;
+                font-size: 13px;
+                color: #AFAFAF;
+            }
+
+            .Blink {
+                animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+            }   
+
+            @keyframes blinker {  
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+
+            .top-right{
+                float: right;
+                width: auto;
+                text-align: right;
+            }
+            
+            .top-right-container{
+                float: right;
+                width: auto;
+                text-align: right;
+                /* edita el cuarto valor de la siguiente línea para cambiar la opacidad */
+                /* 0.0 es transparente, 1.0 es completamente opaco                      */
+                background-color: rgba(0,0,0,0.5);
+                padding: 5px;
+                margin: 10px;
+                -moz-border-radius: 10px;
+                -webkit-border-radius:10px;
+                border-radius:10px;
+            }
+
+            .container{
+                width: 100wh;
+                height: 100vh;
+            }
+        </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>XION Bodycam Overlay</title>
+    </head>
+
+    <body>
+        <script>
+            const enableBeep = true; // Cambia esto a "false" si no deseas tener el sonido en Loop activo.
+        </script>
+        <div id="audio-container"></div>
+        <script>
+            if (enableBeep) {
+            document.getElementById('audio-container').innerHTML = `
+                <audio id="beep" autoplay loop>
+                <source src="double-beep.wav" type="audio/wav">
+                </audio>
+            `;
+            }
+        </script>
+        
+        <div class="top-right-container">
+            <div class="top-right">
+                <img src="data:image/png;base64,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" width="64" height="64" border="0">
+            </div>
+            <div class="top-right">
+                REC&nbsp;<i class="fa fa-circle text-danger Blink"></i>&nbsp;&nbsp;AXON&nbsp;BODYCAM&trade;&nbsp;&nbsp;<br />
+
+                <span id="nombre_personaje">XXX</span>
+                <span id="numero_placa">XXX</span>&nbsp;&nbsp;<br />
+                <span id="departamento">XXX</span>&nbsp;&nbsp;<br />                
+                <span style="padding:0px;margin:0px;" id="date-span">00 XXX 0000</span>
+                <span style="padding:0px;margin:0px;" id="time-span">00:00:00</span>
+                <span style="padding:0px;margin:0px;" id="tz">UTC</span>&nbsp;&nbsp;
+            </div>
+        </div>
+    </body>
+    
+    <script>
+        //*** EDITAR ACA ***//
+        const nombre_personaje = "XXX";
+        const departamento = "XXX";
+        const numero_placa = "XXX";
+    
+        //*** NO EDITAR NADA MAS ***//
+        const monthNames = ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"];
+
+        function init(){
+            clock();
+        };
+
+        function clock(){
+            var d=new Date();
+            updateTime(d);
+            updateDate(d);
+            $('nombre_personaje', nombre_personaje);
+            $('departamento', departamento);
+            $('numero_placa', numero_placa);
+            var animate=setTimeout(clock,100);
+        };
+        
+        function updateDate(dt){
+            var day=dt.getDate();
+            var month=monthNames[dt.getMonth()];
+            var year=dt.getFullYear();
+            var d_str = day + " " + month + " " + year;
+            document.getElementById('date-span').innerHTML = d_str;
+        };
+
+        
+        
+        function updateTime(dt){
+            var h=dt.getHours().toString();
+            var m=dt.getMinutes().toString();
+            var s=dt.getSeconds().toString();
+            h = h.length == 1 ? '0' + h : h;
+            m = m.length == 1 ? '0' + m : m;
+            s = s.length == 1 ? '0' + s : s;
+            var t_str = h + ":" + m + ":" + s + " ";
+            document.getElementById('time-span').innerHTML = t_str;
+        };
+
+        function $(id,val){
+            if(val<10){
+                val='0'+val;
+            }
+            document.getElementById(id).innerHTML=val;
+        };
+
+        window.onload=init;
+    </script>
+
+</html>
