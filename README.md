@@ -1,5 +1,3 @@
-![Project Logo](https://imgur.com/XqvhEa9.png)
-
 # XION-ChaseCam
 Este es un overlay gratuito basado en HTML/javascript para streamers de rol. Básicamente imita el overlay de la cámara corporal AXON, pero como la mayoría juega en tercera persona, es una ChaseCam. He incluido un logo y el archivo html. El archivo html tiene el css, html y javascript todo en un solo archivo para facilitar la edición. Ve a la línea 97 del archivo html para cambiar tu información.
 
