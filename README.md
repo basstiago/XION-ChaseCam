@@ -3,7 +3,7 @@ Este es un overlay gratuito basado en HTML/javascript para streamers de rol. Bá
 
 # Captura(s) de pantalla
 
-![HTML](https://imgur.com/0uUMYO1)
+![HTML](https://imgur.com/0uUMYO1.png)
 
 # Cómo usar:
 
