@@ -1,9 +1,12 @@
 # XION-ChaseCam
 Este es un overlay gratuito basado en HTML/javascript para streamers de rol. Básicamente imita el overlay de la cámara corporal AXON, pero como la mayoría juega en tercera persona, es una ChaseCam. He incluido un logo y el archivo html. El archivo html tiene el css, html y javascript todo en un solo archivo para facilitar la edición. Ve a la línea 97 del archivo html para cambiar tu información, y asegúrate de leer el archivo readme.txt para más información.
 
+![Axion Real](https://i.imgur.com/GfITBFp.png)
+
 # Captura(s) de pantalla
 
 ![HTML](https://imgur.com/0uUMYO1.png)
+
 
 # Cómo usar:
 
@@ -24,7 +27,7 @@ v1.1 Actualización del sistema (Fixes a la versión de zhivotnoya):
 
 - Se implementa la función "enableBeep", que permite al usuario activar o desactivar un sonido "beep" cada 2 minutos.
 - Se han traducido al español las variables "jugador", "agencia" y "indicativo" para facilitar la comprensión de los usuarios de habla hispana.
-- Se han traducido las variables "nombresdemeses" para que se reflejen en español en el contenedor.
+- Se han traducido las variables "monthNames" para que se reflejen en español en el contenedor.
 - Se ha realizado una traducción completa al español.
 
 # Créditos
